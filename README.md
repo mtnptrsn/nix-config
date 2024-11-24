@@ -3,6 +3,9 @@
 ### Ubuntu
 
 ```bash
+# Install nix
+sh <(curl -L https://nixos.org/nix/install) --daemon
+
 # Set experimental-features flag
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
@@ -10,9 +13,6 @@ echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
 # Clone this repository
 git clone https://github.com/mtnptrsn/nix-config.git
 cd nix-config
-
-# Install nix
-sh <(curl -L https://nixos.org/nix/install) --daemon
 
 # Open tempoary shell with nix and home-manager
 nix-shell
