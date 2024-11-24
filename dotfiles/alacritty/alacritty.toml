@@ -1,0 +1,22 @@
+import = [ "$DOTFILES/alacritty/tokyo-night.toml" ]
+
+[font]
+size = 20
+
+[font.bold]
+family = "FiraCode Nerd Font"
+style = "Bold"
+
+[font.glyph_offset]
+y = 7
+
+[font.italic]
+family = "FiraCode Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+style = "Regular"
+
+[font.offset]
+y = 14
