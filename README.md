@@ -27,3 +27,10 @@ exit
 echo ~/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s ~/.nix-profile/bin/zsh $USER
 ```
+
+## Apply changes
+
+```bash
+cd ~/nix-config
+home-manager switch --flake .
+```
