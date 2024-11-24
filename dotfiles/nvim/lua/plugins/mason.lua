@@ -20,6 +20,7 @@ return {
 				"tailwindcss", -- Tailwind CSS files
 				"marksman",
 				"clangd",
+				"nil_ls",
 			},
 		},
 	},
@@ -34,6 +35,7 @@ return {
 				"eslint_d", -- ESLint for linting JavaScript, TypeScript, etc.
 				"black", -- Black for Python formatting
 				"flake8", -- Flake8 for Python linting
+				"nixpkgs-fmt",
 			},
 		},
 	},
