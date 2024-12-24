@@ -17,13 +17,6 @@
     cargo
     docker
   ];
-  home.file = {
-    ".config/nvim".source = ../dotfiles/nvim;
-  };
-  home.sessionVariables = {
-    EDITOR = "neovim";
-    TERM = "alacritty";
-  };
   programs = {
     neovim.enable = true;
     ripgrep.enable = true;
@@ -41,5 +34,6 @@
     ./modules/git.nix
     ./modules/neovim.nix
     ./modules/fzf.nix
+    ./modules/alacritty.nix
   ];
 }
