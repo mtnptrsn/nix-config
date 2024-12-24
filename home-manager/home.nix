@@ -32,7 +32,7 @@
     ./modules/tmux.nix
     ./modules/zsh.nix
     ./modules/git.nix
-    ./modules/neovim.nix
+    ./modules/neovim/neovim.nix
     ./modules/fzf.nix
     ./modules/alacritty.nix
   ];

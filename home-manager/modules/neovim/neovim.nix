@@ -1,6 +1,6 @@
 {
   home.file = {
-    ".config/nvim".source = ../../dotfiles/nvim;
+    ".config/nvim".source = ./config;
   };
   programs.neovim = {
     viAlias = true;
