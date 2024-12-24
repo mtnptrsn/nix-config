@@ -5,9 +5,10 @@
       theme = "robbyrussell";
       plugins = [
         "git"
-        "sudo"
-        "web-search"
       ];
+    };
+    shellAliases = {
+      dsa = "docker stop $(docker ps -a -q)";
     };
   };
 }
