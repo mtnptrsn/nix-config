@@ -12,5 +12,11 @@
       cd = "z";
     };
   };
-  home.file.".scripts".source = ./scripts;
+
+  home.sessionPath = [ "$HOME/.local/bin" ];
+
+  home.file.".local/bin" = {
+    source = ./scripts;
+    recursive = true;
+  };
 }
