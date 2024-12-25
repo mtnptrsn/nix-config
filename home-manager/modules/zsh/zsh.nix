@@ -9,6 +9,10 @@
     };
     shellAliases = {
       dsa = "docker stop $(docker ps -a -q)";
+      cd = "z";
     };
+  };
+  home.file = {
+    ".scripts".source = ./scripts;
   };
 }

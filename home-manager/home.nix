@@ -4,6 +4,8 @@
   home.username = "mtnptrsn";
   home.homeDirectory = "/home/mtnptrsn";
   home.stateVersion = "24.05";
+  # TODO: Come up with a better way to handle path
+  home.sessionVariables.PATH = "$PATH:$HOME/.scripts";
   home.packages = with pkgs; [
     nodejs_20
     ripgrep
@@ -30,7 +32,7 @@
   };
   imports = [
     ./modules/tmux.nix
-    ./modules/zsh.nix
+    ./modules/zsh/zsh.nix
     ./modules/git.nix
     ./modules/neovim/neovim.nix
     ./modules/fzf.nix
