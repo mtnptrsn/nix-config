@@ -12,7 +12,5 @@
       cd = "z";
     };
   };
-  home.file = {
-    ".scripts".source = ./scripts;
-  };
+  home.file.".scripts".source = ./scripts;
 }

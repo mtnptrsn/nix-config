@@ -1,3 +1,0 @@
-{
-  home.sessionVariables.TERM = "alacritty";
-}

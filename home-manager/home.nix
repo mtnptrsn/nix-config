@@ -28,6 +28,7 @@
     fzf.enable = true;
     zoxide.enable = true;
     tmux.enable = true;
+    alacritty.enable = true;
     home-manager.enable = true;
   };
   imports = [
@@ -36,6 +37,6 @@
     ./modules/git.nix
     ./modules/neovim/neovim.nix
     ./modules/fzf.nix
-    ./modules/alacritty.nix
+    ./modules/alacritty/alacritty.nix
   ];
 }
