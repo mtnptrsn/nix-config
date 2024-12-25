@@ -6,7 +6,6 @@
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     nodejs_20
-    ripgrep
     fira-code
     pipx
     gnumake
