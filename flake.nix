@@ -9,18 +9,27 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
-    homeConfigurations = {
-      "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [ ./hosts/linux ./homes/linux.nix ];
-      };
+  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: rec {
+
+    systems = {
+      linux = "x86_64-linux";
+      macos = "aarch64-darwin";
     };
 
-    darwinConfigurations = {
-      "mtnptrsn" = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
+    homeConfigurations =
+      let
+        linuxModules = [ ./hosts/linux.nix ./homes/linux.nix ];
+      in
+      {
+        "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.${systems.linux};
+          modules = linuxModules;
+        };
+      };
+
+    darwinConfigurations =
+      let
+        darwinModules = [
           ./hosts/darwin.nix
           home-manager.darwinModules.home-manager
           {
@@ -29,7 +38,12 @@
             home-manager.users.mtnptrsn = import ./homes/darwin.nix;
           }
         ];
+      in
+      {
+        "mtnptrsn" = darwin.lib.darwinSystem {
+          system = systems.macos;
+          modules = darwinModules;
+        };
       };
-    };
   };
 }
