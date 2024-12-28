@@ -42,7 +42,7 @@
 
       darwinConfigurations."mtnptrsn-darwin" = nix-darwin.lib.darwinSystem {
         # inherit pkgsDarwin;
-        modules = [ ];
+        modules = [ ./darwin.nix ];
       };
     };
 }
