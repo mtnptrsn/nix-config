@@ -1,6 +1,6 @@
 # darwin.nix
 
-{ pkgs, ... }:
+{ pkgs, system, ... }:
 
 {
   system.stateVersion = 5;

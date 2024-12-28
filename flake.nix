@@ -1,7 +1,7 @@
 # flake.nix
 
 {
-  description = "Darwin configuration";
+  description = "mtnptrsn";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -14,7 +14,6 @@
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
     homeConfigurations = {
       "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
-        # inherit pkgs;
         system = "x86_64-linux";
         modules = [ ./linux.nix ./home-manager/home.nix ];
       };
