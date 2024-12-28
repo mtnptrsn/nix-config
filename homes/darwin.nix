@@ -1,18 +1,22 @@
-# darwin.nix
-
 { pkgs, system, ... }:
 
 {
+  system.stateVersion = 5;
+
   users.users.mtnptrsn = {
     name = "mtnptrsn";
     home = "/Users/mtnptrsn";
   };
 
-  system.stateVersion = 5;
-  services.nix-daemon.enable = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
+
+  services.nix-daemon.enable = true;
 
   fonts.packages = [
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+  ];
+
+  imports = [
+    ./common.nix
   ];
 }
