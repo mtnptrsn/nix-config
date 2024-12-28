@@ -14,6 +14,11 @@
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
     homeConfigurations = {
       "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
+        # system = "x86_64-linux";
+        # pkgs = nixpkgs.legacyPackages.${system};
+
+        inherit (nixpkgs.legacyPackages.x86_64-linux);
+
         system = "x86_64-linux";
         modules = [ ./linux.nix ./home-manager/home.nix ];
       };
