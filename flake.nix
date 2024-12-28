@@ -40,9 +40,9 @@
         modules = [ ./home-manager/home.nix ];
       };
 
-      # darwinConfigurations."mtnptrsn" = nix-darwin.lib.darwinSystem {
-      #   inherit pkgsDarwin;
-      #   modules = [ ./darwin/darwin.nix ];
-      # };
+      darwinConfigurations."mtnptrsn-darwin" = nix-darwin.lib.darwinSystem {
+        # inherit pkgsDarwin;
+        modules = [ ];
+      };
     };
 }
