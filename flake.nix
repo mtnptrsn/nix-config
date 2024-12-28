@@ -11,7 +11,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, pkgs, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
     homeConfigurations = {
       "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
         # inherit pkgs;
