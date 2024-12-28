@@ -1,4 +1,4 @@
-{ pkgs, system, ... }:
+{ pkgs, system, config, ... }:
 
 {
   system.stateVersion = 5;
