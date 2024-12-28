@@ -13,7 +13,7 @@
 
   outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
     darwinConfigurations = {
-      hostname = darwin.lib.darwinSystem {
+      "mtnptrsn-darwin" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin.nix
