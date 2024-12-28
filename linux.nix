@@ -1,8 +1,6 @@
-{ pkgs, system, ... }:
+{ pkgs, ... }:
 
 {
-  users.users.mtnptrsn = {
-    name = "mtnptrsn";
-    home = "/home/mtnptrsn";
-  };
+  home.username = "mtnptrsn";
+  home.homeDirectory = "/home/mtnptrsn";
 }
