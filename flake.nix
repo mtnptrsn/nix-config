@@ -35,14 +35,18 @@
         modules = [ ./home-manager/home.nix ];
       };
 
-      homeConfigurations."mtnptrsn-darwin" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgsDarwin;
-        modules = [ ./home-manager/home.nix ];
-      };
+      # homeConfigurations."mtnptrsn-darwin" = home-manager.lib.homeManagerConfiguration {
+      #   inherit pkgsDarwin;
+      #   modules = [ ./home-manager/home.nix ];
+      # };
 
       darwinConfigurations."mtnptrsn-darwin" = nix-darwin.lib.darwinSystem {
         # inherit pkgsDarwin;
-        modules = [ ./darwin.nix ];
+        modules = [
+          home-manager.darwinModules.home-manager
+          ./home-manager/home.nix
+          ./darwin.nix
+        ];
       };
     };
 }
