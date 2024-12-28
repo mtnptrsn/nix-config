@@ -1,5 +1,3 @@
-# flake.nix
-
 {
   description = "mtnptrsn";
 
@@ -11,36 +9,27 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations = {
-        "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
-          # system = "x86_64-linux";
-          # pkgs = nixpkgs.legacyPackages.${system};
-
-          inherit pkgs;
-          modules = [ ./linux.nix ./home-manager/home.nix ];
-        };
-      };
-
-      darwinConfigurations = {
-        "mtnptrsn" = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
-          modules = [
-            ./darwin.nix
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.mtnptrsn = import ./home-manager/home.nix;
-            }
-          ];
-        };
+  outputs = inputs@{ nixpkgs, home-manager, darwin, ... }: {
+    homeConfigurations = {
+      "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages."x86_64-linux";
+        modules = [ ./linux.nix ./home-manager/home.nix ];
       };
     };
 
+    darwinConfigurations = {
+      "mtnptrsn" = darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.mtnptrsn = import ./home-manager/home.nix;
+          }
+        ];
+      };
+    };
+  };
 }
