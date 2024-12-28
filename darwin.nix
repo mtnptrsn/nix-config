@@ -29,6 +29,6 @@
 
   users.users.mtnptrsn = {
     name = "mtnptrsn";
-    home = "/Users/mtnptrsn";
+    # home = "/Users/mtnptrsn";
   };
 }
