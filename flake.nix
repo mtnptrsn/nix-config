@@ -13,7 +13,7 @@
     homeConfigurations = {
       "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        modules = [ ./homes/linux.nix ];
+        modules = [ ./hosts/linux ./homes/linux.nix ];
       };
     };
 
@@ -21,6 +21,7 @@
       "mtnptrsn" = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
+          ./hosts/darwin.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
