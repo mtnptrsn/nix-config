@@ -42,6 +42,7 @@
       darwinConfigurations."mtnptrsn-darwin" = nix-darwin.lib.darwinSystem {
         # inherit pkgsDarwin;
         modules = [
+          ./darwin.nix
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
