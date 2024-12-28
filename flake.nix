@@ -43,8 +43,14 @@
         # inherit pkgsDarwin;
         modules = [
           home-manager.darwinModules.home-manager
-          ./home-manager/home.nix
-          ./darwin.nix
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.mtnptrsn = import ./home-manager/home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
         ];
       };
     };
