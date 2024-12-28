@@ -7,9 +7,10 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs: rec {
+  outputs = { self, nixpkgs, home-manager, darwin, nix-homebrew, ... }@inputs: rec {
 
     systems = {
       linux = "x86_64-linux";
@@ -30,13 +31,21 @@
     darwinConfigurations =
       let
         darwinModules = [
-          ./hosts/darwin.nix
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true;
+              user = "mtnptrsn";
+            };
+          }
           home-manager.darwinModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.mtnptrsn = import ./homes/darwin.nix;
           }
+          ./hosts/darwin.nix
         ];
       in
       {
