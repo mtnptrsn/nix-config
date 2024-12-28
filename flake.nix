@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, nixpkgsDarwin, home-manager, nix-darwin, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, nix-darwin, ... }:
     let
       linuxSystem = "x86_64-linux";
       darwinSystem = "aarch64-darwin";
