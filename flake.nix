@@ -23,8 +23,6 @@
           # pkgs = nixpkgs.legacyPackages.${system};
 
           inherit pkgs;
-
-          system = "x86_64-linux";
           modules = [ ./linux.nix ./home-manager/home.nix ];
         };
       };
