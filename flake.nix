@@ -14,7 +14,7 @@
   outputs = inputs@{ nixpkgs, home-manager, darwin, pkgs, ... }: {
     homeConfigurations = {
       "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        # inherit pkgs;
         system = "x86_64-linux";
         modules = [ ./linux.nix ./home-manager/home.nix ];
       };
