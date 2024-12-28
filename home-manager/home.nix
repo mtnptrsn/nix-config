@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.username = "mtnptrsn";
-  home.homeDirectory = "/home/mtnptrsn";
+  # home.username = "mtnptrsn";
+  # home.homeDirectory = "/home/mtnptrsn";
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
     nodejs_20
