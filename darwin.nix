@@ -3,12 +3,10 @@
 { pkgs, system, ... }:
 
 {
-  # users.users.mtnptrsn = {
-  #   name = "mtnptrsn";
-  #   home = "/Users/mtnptrsn";
-  # };
-  home.username = "mtnptrsn";
-  home.homeDirectory = "/Users/mtnptrsn";
+  users.users.mtnptrsn = {
+    name = "mtnptrsn";
+    home = "/Users/mtnptrsn";
+  };
 
   system.stateVersion = 5;
   services.nix-daemon.enable = true;
