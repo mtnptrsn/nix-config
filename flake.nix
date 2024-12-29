@@ -18,41 +18,20 @@
     };
 
     homeConfigurations =
-      let
-        linuxModules = [ ./hosts/linux.nix ./homes/linux.nix ];
-      in
       {
         "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${systems.linux};
-          modules = linuxModules;
+          modules = [ ./hosts/linux.nix ./homes/linux.nix ];
         };
       };
 
-    darwinConfigurations =
-      let
-        darwinModules = [
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "mtnptrsn";
-            };
-          }
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mtnptrsn = import ./homes/darwin.nix;
-          }
+    darwinConfigurations = {
+      "mtnptrsn" = darwin.lib.darwinSystem {
+        system = systems.macos;
+        modules = (import ./darwin-modules.nix { inherit nix-homebrew home-manager; }) ++ [
           ./hosts/darwin.nix
         ];
-      in
-      {
-        "mtnptrsn" = darwin.lib.darwinSystem {
-          system = systems.macos;
-          modules = darwinModules;
-        };
       };
+    };
   };
 }
