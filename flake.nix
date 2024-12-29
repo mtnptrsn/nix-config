@@ -17,16 +17,18 @@
       macos = "aarch64-darwin";
     };
 
+    username = "mtnptrsn";
+
     homeConfigurations =
       {
-        "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
+        ${username} = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${systems.linux};
           modules = [ ./hosts/linux.nix ./homes/linux.nix ];
         };
       };
 
     darwinConfigurations = {
-      "mtnptrsn" = darwin.lib.darwinSystem {
+      ${username} = darwin.lib.darwinSystem {
         system = systems.macos;
         modules = (import ./darwin-modules.nix { inherit nix-homebrew home-manager; }) ++ [
           ./hosts/darwin.nix

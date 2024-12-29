@@ -16,23 +16,23 @@
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
-  homebrew = {
-    enable = true;
-    casks = [
-      "google-chrome"
-      "discord"
-      "1password"
-      "spotify"
-      "alfred"
-      "alacritty"
-      "obsidian"
-      "docker"
-      "trezor-suite"
-      "transmission"
-      "audacity"
-    ];
-    onActivation.cleanup = "zap";
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
-  };
+  # homebrew = {
+  #   enable = true;
+  #   casks = [
+  #     "google-chrome"
+  #     "discord"
+  #     "1password"
+  #     "spotify"
+  #     "alfred"
+  #     "alacritty"
+  #     "obsidian"
+  #     "docker"
+  #     "trezor-suite"
+  #     "transmission"
+  #     "audacity"
+  #   ];
+  #   onActivation.cleanup = "zap";
+  #   onActivation.autoUpdate = true;
+  #   onActivation.upgrade = true;
+  # };
 }
