@@ -23,7 +23,6 @@
     fzf.enable = true;
     zoxide.enable = true;
     tmux.enable = true;
-    alacritty.enable = true;
     home-manager.enable = true;
   };
   imports = [

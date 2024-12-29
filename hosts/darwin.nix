@@ -18,19 +18,7 @@
 
   homebrew = {
     enable = true;
-    casks = [
-      "google-chrome"
-      "discord"
-      "1password"
-      "spotify"
-      "alfred"
-      "alacritty"
-      "obsidian"
-      "docker"
-      "trezor-suite"
-      "transmission"
-      "audacity"
-    ];
+    casks = import ./casks.nix;
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;

@@ -10,49 +10,42 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, nix-homebrew, ... }@inputs: rec {
-
-    systems = {
-      linux = "x86_64-linux";
-      macos = "aarch64-darwin";
-    };
-
-    homeConfigurations =
-      let
-        linuxModules = [ ./hosts/linux.nix ./homes/linux.nix ];
-      in
-      {
-        "mtnptrsn" = home-manager.lib.homeManagerConfiguration {
+  outputs = { self, nixpkgs, home-manager, darwin, nix-homebrew, ... }@inputs:
+    let
+      systems = {
+        linux = "x86_64-linux";
+        macos = "aarch64-darwin";
+      };
+      username = "mtnptrsn";
+    in
+    {
+      homeConfigurations = {
+        ${username} = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${systems.linux};
-          modules = linuxModules;
+          modules = [ ./hosts/linux.nix ./homes/linux.nix ];
         };
       };
 
-    darwinConfigurations =
-      let
-        darwinModules = [
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = true;
-              user = "mtnptrsn";
-            };
-          }
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mtnptrsn = import ./homes/darwin.nix;
-          }
-          ./hosts/darwin.nix
-        ];
-      in
-      {
-        "mtnptrsn" = darwin.lib.darwinSystem {
-          system = systems.macos;
-          modules = darwinModules;
+      darwinConfigurations = {
+        ${username} = darwin.lib.darwinSystem {
+          modules = [
+            ./hosts/darwin.nix
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                enable = true;
+                enableRosetta = true;
+                user = username;
+              };
+            }
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./homes/darwin.nix;
+            }
+          ];
         };
       };
-  };
+    };
 }
