@@ -1,4 +1,4 @@
-{ pkgs, system, config, ... }:
+{ pkgs, ... }:
 
 {
   system.stateVersion = 5;
@@ -19,8 +19,13 @@
   homebrew = {
     enable = true;
     casks = import ./casks.nix;
-    onActivation.cleanup = "zap";
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "zap";
+    };
+    masApps = {
+      "Xcode" = 497799835;
+    };
   };
 }

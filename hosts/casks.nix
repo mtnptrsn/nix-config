@@ -11,4 +11,8 @@
   "trezor-suite"
   "transmission"
   "audacity"
+  "steam"
+  "porting-kit"
+  "vlc"
+  "visual-studio-code"
 ]

@@ -7,12 +7,13 @@
     fira-code
     pipx
     gnumake
-    gcc
     zip
     unzip
     cargo
     python3
     python3Packages.pip
+    docker
+    rustc
   ];
   programs = {
     neovim.enable = true;
