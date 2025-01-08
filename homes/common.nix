@@ -10,9 +10,9 @@
     gcc
     zip
     unzip
-    python3
     cargo
-    docker
+    python3
+    python3Packages.pip
   ];
   programs = {
     neovim.enable = true;
