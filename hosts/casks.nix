@@ -15,4 +15,11 @@
   "porting-kit"
   "vlc"
   "visual-studio-code"
+  "todoist"
+  "raspberry-pi-imager"
+  "ultimaker-cura"
+  "autodesk-fusion"
+  "godot-mono"
+  "balenaetcher"
+  "cursor"
 ]
