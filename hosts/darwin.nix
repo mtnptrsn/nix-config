@@ -3,6 +3,15 @@
 {
   system.stateVersion = 5;
 
+
+  system.defaults =
+    {
+      dock.autohide = true;
+      universalaccess.reduceMotion = true;
+      NSGlobalDomain."com.apple.swipescrolldirection" = false;
+      NSGlobalDomain.NSScrollAnimationEnabled = false;
+    };
+
   users.users.mtnptrsn = {
     name = "mtnptrsn";
     home = "/Users/mtnptrsn";
@@ -10,10 +19,8 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
-  services.nix-daemon.enable = true;
-
   fonts.packages = [
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+    pkgs.nerd-fonts.fira-code
   ];
 
   homebrew = {
@@ -23,9 +30,6 @@
       autoUpdate = true;
       upgrade = true;
       cleanup = "zap";
-    };
-    masApps = {
-      "Xcode" = 497799835;
     };
   };
 }
