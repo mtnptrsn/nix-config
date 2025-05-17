@@ -7,10 +7,21 @@
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+
+    nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+
+    # Optional: Declarative tap management
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
   };
 
-  outputs = { nixpkgs, home-manager, darwin, nix-homebrew, ... }:
+  outputs = { nixpkgs, home-manager, darwin, nix-homebrew, homebrew-core, homebrew-cask, ... }:
     let
       systems = {
         linux = "x86_64-linux";
@@ -36,6 +47,11 @@
                 enable = true;
                 enableRosetta = true;
                 user = username;
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                };
+                mutableTaps = false;
               };
             }
             home-manager.darwinModules.home-manager
