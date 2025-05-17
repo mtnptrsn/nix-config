@@ -28,9 +28,36 @@ echo ~/.nix-profile/bin/zsh | sudo tee -a /etc/shells
 sudo usermod -s ~/.nix-profile/bin/zsh $USER
 ```
 
+### MacOS
+
+```bash
+# Install nix
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
+
+# Set experimental-features flag
+mkdir -p ~/.config/nix
+echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+
+# Clone this repository
+git clone https://github.com/mtnptrsn/nix-config.git
+cd nix-config
+
+# Install the configuration
+nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mtnptrsn
+```
+
 ## Apply changes
+
+### Ubuntu
 
 ```bash
 cd ~/nix-config
 home-manager switch --flake .
+```
+
+### MacOS
+
+```bash
+cd ~/nix-config
+nix run nix-darwin/master#darwin-rebuild -- switch --flake .#mtnptrsn
 ```
