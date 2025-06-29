@@ -22,4 +22,5 @@
   "godot-mono"
   "balenaetcher"
   "cursor"
+  "blackhole-16ch"
 ]
