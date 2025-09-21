@@ -3,7 +3,7 @@
 {
   home.stateVersion = "24.05";
   home.packages = with pkgs; [
-    nodejs_20
+    nodejs_22
     fira-code
     pipx
     gnumake
@@ -14,6 +14,11 @@
     python3Packages.pip
     docker
     rustc
+    pnpm
+    lua54Packages.luarocks
+    lua54Packages.tl
+    lua54Packages.lua
+    tree
   ];
   programs = {
     neovim.enable = true;
