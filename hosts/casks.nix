@@ -23,4 +23,7 @@
   "balenaetcher"
   "cursor"
   "blackhole-16ch"
+  "firefox"
+  "dotnet-sdk"
+  "retroarch"
 ]
