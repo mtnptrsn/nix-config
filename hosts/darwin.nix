@@ -19,6 +19,9 @@
 
   nixpkgs.hostPlatform = "aarch64-darwin";
 
+  # Enable unfree packages (required for claude-code and other proprietary software)
+  nixpkgs.config.allowUnfree = true;
+
   fonts.packages = [
     pkgs.nerd-fonts.fira-code
   ];
