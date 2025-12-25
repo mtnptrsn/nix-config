@@ -20,6 +20,17 @@
     lua54Packages.lua
     tree
   ];
+
+  # Configure npm to install global packages to home directory
+  home.file.".npmrc".text = ''
+    prefix=~/.npm-packages
+  '';
+
+  # Add npm global packages to PATH
+  home.sessionPath = [
+    "$HOME/.npm-packages/bin"
+  ];
+
   programs = {
     neovim.enable = true;
     ripgrep.enable = true;
