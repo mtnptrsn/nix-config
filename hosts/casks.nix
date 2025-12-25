@@ -26,4 +26,6 @@
   "firefox"
   "dotnet-sdk"
   "retroarch"
+  "crossover"
+  "curseforge"
 ]
