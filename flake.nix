@@ -24,19 +24,11 @@
   outputs = { nixpkgs, home-manager, darwin, nix-homebrew, homebrew-core, homebrew-cask, ... }:
     let
       systems = {
-        linux = "x86_64-linux";
         macos = "aarch64-darwin";
       };
       username = "mtnptrsn";
     in
     {
-      homeConfigurations = {
-        ${username} = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.${systems.linux};
-          modules = [ ./hosts/linux.nix ./homes/linux.nix ];
-        };
-      };
-
       darwinConfigurations = {
         ${username} = darwin.lib.darwinSystem {
           modules = [
