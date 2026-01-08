@@ -19,6 +19,7 @@
     lua54Packages.tl
     lua54Packages.lua
     tree
+    turbo
   ];
 
   # Configure npm to install global packages to home directory

@@ -8,7 +8,6 @@
   "alacritty"
   "obsidian"
   "docker"
-  "trezor-suite"
   "transmission"
   "audacity"
   "steam"
@@ -28,4 +27,6 @@
   "retroarch"
   "crossover"
   "curseforge"
+  "slack"
+  "figma"
 ]

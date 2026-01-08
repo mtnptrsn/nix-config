@@ -1,8 +1,6 @@
 #!/bin/bash
 
 today=$(date +"%Y-%m-%d")
-tomorrow=$(date -v +1d +"%Y-%m-%d")
-yesterday=$(date -v -1d +"%Y-%m-%d")
 base_dir="$OBSIDIAN/daily-notes"
 year=$(date +"%Y")
 month=$(date +"%m")
@@ -22,9 +20,7 @@ new_note() {
         cat <<EOF >"$file"
 # $today
 
-[[$yesterday-$dir.md]] - [[$tomorrow-$dir.md]]
-
-## Log
+## Todo
 EOF
 
     elif [ "$dir" == "work" ]; then
@@ -32,9 +28,7 @@ EOF
         cat <<EOF >"$file"
 # $today
 
-[[$yesterday-$dir.md]] - [[$tomorrow-$dir.md]]
-
-## Log
+## Todo
 EOF
 
     else
