@@ -43,6 +43,23 @@ return {
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = {
       -- first key is the mode
+      v = {
+        ["<Leader>yr"] = {
+          function()
+            local start_line = vim.fn.line("v")
+            local end_line = vim.fn.line(".")
+            if start_line > end_line then
+              start_line, end_line = end_line, start_line
+            end
+            local relative_path = vim.fn.expand("%:.")
+            local result = relative_path .. ":" .. start_line .. "-" .. end_line
+            vim.fn.setreg("+", result)
+            vim.notify("Copied: " .. result)
+            vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "n", false)
+          end,
+          desc = "Copy relative path with line numbers",
+        },
+      },
       n = {
         -- second key is the lefthand side of the map
 
